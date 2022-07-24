@@ -3,23 +3,23 @@ import './Employee.scss';
 
 const Employee = (props) => {
   return ( 
-    <div key={props.emp.id} className="emp-data-row row">
+    <tr key={props.emp.id} className="emp-data-row row">
       {Object.keys(props.emp).map(empKey => (
-        <div key={empKey} className={`col emp-data-col`}>{props.emp[empKey]}</div>
+        <td key={empKey} className={`col emp-data-col`}>{props.emp[empKey]}</td>
       ))}
-      <button
-        className="cmn-btn"
-        onClick={props.edit}
-      >
-        edit
-      </button>
-      <button
-        className="cmn-btn"
-        onClick={props.delete}
-      >
-        delete
-      </button>
-    </div>
+      <td className='col emp-action-col'>
+        <Button
+          style={{ backgroundColor: '#1890ff' }}
+          click={props.edit}
+          text="edit"
+        />
+        <Button
+          style={{ backgroundColor: '#ff4d4f' }}
+          click={props.delete}
+          text="delete"
+        />
+      </td>
+    </tr>
   );
 }
 

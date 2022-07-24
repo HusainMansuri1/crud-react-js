@@ -1,0 +1,30 @@
+table.empt-tbl {
+  width: 100%;
+  font-size: 15px;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+  
+  td, th{
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  th {
+    position: relative;
+    background: #fafafa;
+    font-weight: 500;
+    text-align: left;
+    
+    &::before {
+      content: "";
+      width: 1px;
+      height: 1.6em;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      background-color: rgba(0,0,0,.06);
+      transform: translateY(-50%);
+      transition: background-color .3s;
+    }
+  }
+}

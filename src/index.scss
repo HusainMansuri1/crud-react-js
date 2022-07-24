@@ -6,10 +6,9 @@ html {
   -ms-text-size-adjust: 100%;
 }
 body {
-  // font-family: $font-primary, sans-serif;
+  font-family: 'Roboto', sans-serif;;
   font-size: 16px;
   font-weight: 400;
-  font-family: sans-serif;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -122,9 +121,9 @@ section {
 /*********** STICKY FOOTER(START)  **************/
 html,
 body,
-.root-wrapper{display: flex;flex-direction: column;}
-.root-wrapper{min-height: 100vh;}
-.site-main{flex-grow: 1;}
+.App{display: flex;flex-direction: column;}
+.App{min-height: 100vh;}
+.app-main{flex-grow: 1;}
 /*********** STICKY FOOTER(END)  **************/
 
 /*********** Container (START)  **************/
@@ -136,4 +135,43 @@ body,
   margin-left: auto;
   position: relative;
 }
-/*********** Container (START)  **************/
+/*********** Container (END)  **************/
+
+/*********** Common (START)  **************/
+.cmn-heading{
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.emp-grp{
+  margin-bottom: 10px;
+  
+  label{
+    width: 150px;
+    display: inline-block;
+    color: #433f3f;
+    font-weight: 500;
+  }
+
+  input {
+    width: 300px;
+    padding: 5px;
+    margin-left: 35px;
+    display: inline-block;
+
+    &::placeholder{
+      font-size: 15px;
+    }
+  }
+}
+
+.form-btn.cmn-btn{
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 13px;
+  background-color: #1890ff;
+}
+/*********** Common (END)  **************/

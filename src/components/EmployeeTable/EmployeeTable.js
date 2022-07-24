@@ -4,7 +4,7 @@ import './EmployeeTable.scss';
 
 const EmployeeTable  = (props) => {
   return ( 
-    <div className="empt-tbl">
+    <table className="empt-tbl">
       <EmployeeFields 
         fieldDetails={props.fieldDetails}
       />
@@ -12,7 +12,7 @@ const EmployeeTable  = (props) => {
         fieldDetails={props.fieldDetails}
         blankEmpData={props.blankEmpData}
       />
-    </div>
+    </table>
   );
 }
 

@@ -41,13 +41,15 @@ export const EmployeeContextProvider = props => {
   const [empData, empDispatch] = useReducer(empReducer, []);
   const [empFields, setEmpFields] = useState([]);
   const [loadInfo, setLoadInfo] = useState({
+    loading: false,
     loaded: false,
     success: false
   });
 
   useEffect(() => {
+    setLoadInfo({ loading: true, loaded: true, success: true });
     axios
-      .get(`https://hub.dummyapis.com/employee?noofRecords=3&idStarts=1001`)
+      .get(`https://hub.dummyapis.com/employee?noofRecords=5&idStarts=1001`)
       .then(employeeData => {
         /** extracting required data from  api result */
         const EditedEmployeeData = employeeData.data.map(currentEmployeeData => {
@@ -57,13 +59,13 @@ export const EmployeeContextProvider = props => {
         /** updating state on success */
         empDispatch({ type: ACTIONS.set, payload: { data: EditedEmployeeData } });
         setEmpFields(Object.keys(EditedEmployeeData[0]));
-        setLoadInfo({ loaded: true, success: true });
+        setLoadInfo({ loading: false, loaded: true, success: true });
       })
       .catch(error => {
         /** updating state on error */
         console.log('employeeData error:', error);
         empDispatch({type: ACTIONS.set, payload: {data: []}});
-        setLoadInfo({loaded: true, success: false});
+        setLoadInfo({loading: false, loaded: true, success: false});
       });
   }, []);
 
@@ -75,7 +77,8 @@ export const EmployeeContextProvider = props => {
       }, 
       empFields: {
         data: empFields, 
-      }
+      },
+      loadInfo
     }}>
       {loadInfo.loaded && props.children}
     </EmployeeContext.Provider>

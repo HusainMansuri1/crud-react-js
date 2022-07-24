@@ -12,7 +12,6 @@ const EmployeeMain = (props) => {
    * @returns {object} employ fields (eg name, dob)   
    */
   const empFieldDetails = (() => {
-    console.log('run');
     let fields = {};
     context.empFields.data.forEach((field) => 
       fields[field] = ((key = field) => {
@@ -82,16 +81,22 @@ const EmployeeMain = (props) => {
   })();
   
   return ( 
-    <main className="emp-main" id="emp-main">
+    <main className="app-main emp-main" id="emp-main">
       <div className="container">
-        <EmployeeTable 
-          fieldDetails={empFieldDetails}
-          blankEmpData={initEmptyEmpData}
-        />
-        <AddEmployee 
-          fieldDetails={empFieldDetails}
-          blankEmpData={initEmptyEmpData}
-        />
+        {context.loadInfo.loading ? 
+          <div className='loading-text'>Loading... </div> 
+          :
+          <>
+            <EmployeeTable 
+              fieldDetails={empFieldDetails}
+              blankEmpData={initEmptyEmpData}
+            />
+            <AddEmployee 
+              fieldDetails={empFieldDetails}
+              blankEmpData={initEmptyEmpData}
+            />
+          </>
+        }
       </div>
     </main>
   );

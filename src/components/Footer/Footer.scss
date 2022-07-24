@@ -1,0 +1,16 @@
+.app-footer {
+  background-color: #3c3c3c;
+  margin-top: 50px;
+  padding: 6px 0;
+  text-align: center;
+
+  &__text {
+    color: #fff;
+    font-weight: 600;
+
+    & a {
+      color: #7cd2fb;
+      text-decoration: underline;
+    }
+  }
+}

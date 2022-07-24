@@ -102,7 +102,7 @@ const EmployeeData = (props) => {
   };
 
   return ( 
-    <div className="emp__data">
+    <tbody className="emp__data">
       {context.empData.data.map((curEmp, index) =>  
         <Employee 
           key={curEmp.id} 
@@ -130,7 +130,7 @@ const EmployeeData = (props) => {
           />,
         document.getElementById('edit-root')) 
       }
-    </div>
+    </tbody>
   );
 }
 

@@ -1,11 +1,11 @@
 const EmployeeFieldGroup = (props) => {
   return ( 
-    <div className={`add-emp__${props.id} add-emp__grp`}>
+    <div className={`emp-grp__${props.id} emp-grp`}>
       <label 
         className="emp-label" 
         htmlFor={props.id}>
           {props.label}
-        </label>
+      </label>:
       <input 
         id={props.id} 
         value={props.value} 

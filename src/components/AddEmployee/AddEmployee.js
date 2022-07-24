@@ -1,6 +1,7 @@
 import { useContext, useReducer} from "react";
 import { EmployeeContext } from "context/employeeContext";
 import EmployeeFieldGroup from "components/EmployeeFieldGroup/EmployeeFieldGroup";
+import Button from "components/Button/Button";
 import { ACTIONS } from "helpers";
 import { generateUniqueId } from "helpers";
 import { changeDateFormat } from "helpers";
@@ -49,8 +50,8 @@ const AddEmployee = (props) => {
 
   return (
     <div className='add-emp'>
-      <h2>Add Employee</h2>
-      <form className='add-emp-form' onSubmit={addEmpHandler}>
+      <h2 className="cmn-heading">Add Employee</h2>
+      <form className='add-emp-form cmn-form' onSubmit={addEmpHandler}>
         { Object.values(props.fieldDetails).map((field) => 
           field.editable && 
             <EmployeeFieldGroup
@@ -65,7 +66,12 @@ const AddEmployee = (props) => {
               })} 
             />
         )}
-        <button type='submit'>Add New Employee</button>
+          <Button 
+            type="submit"
+            classes="form-btn"
+            text="Add"
+            style={{ width: '80px', marginTop: '20px'}}
+          />
       </form>
     </div>
   );
